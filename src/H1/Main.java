@@ -5,6 +5,7 @@ import java.util.Random;
 public class Main {
     public static void main(String[] args) {
 
+        //set random status
         int mana = (new Random().nextInt  ( 50 - 10 + 1) + 10);
         int intelligence = (new Random().nextInt  ( 50 - 1 + 1) + 1);
 
@@ -21,7 +22,7 @@ public class Main {
 
         String name;
         boolean p = true;
-        int choice = choice();
+        int choice = choice(); //Switch cases
         while (p) {
             switch (choice) {
                 case 1:
@@ -37,6 +38,7 @@ public class Main {
                     p = false;
                     break;
                 case 3:
+
                     p = false;
                     break;
                 default:
@@ -47,6 +49,9 @@ public class Main {
         }
 
         System.out.println();
+        //scanner.close();
+
+//print initial Stats
         System.out.println("Battle Begins!");
         System.out.println(warrior.getName() + " vs. " + wizard.getName()+"\n");
         System.out.println(warrior.getName() +" Strength = "+warrior.getStrength() +", " + wizard.getName()+" Intelligence = "+ wizard.getIntelligence());
@@ -65,11 +70,11 @@ public class Main {
         } else {
             System.out.println("It's a tie! Restarting the battle.");
             main(args);
-
         }
 
     }
 
+    //Display health and stamina/mana after each round
     private static void displayStats(Character character1, Character character2) {
         System.out.println("--------Current Stats--------");
         System.out.println(character1.getName() + " - HP: " + character1.getHp() + " | Stamina/Mana: " +
@@ -78,7 +83,7 @@ public class Main {
                 (character2 instanceof Warrior ? ((Warrior) character2).getStamina() : ((Wizard) character2).getMana()));
         System.out.println();
 }
-public static int choice(){
+public static int choice(){ //accept input from the user
     Scanner scanner = new Scanner(System.in);
     System.out.println("Chose Your Character:");
     System.out.println("1. Warrior");
@@ -87,7 +92,7 @@ public static int choice(){
     System.out.print("Enter your choice: ");
     int choice = scanner.nextInt();
 
-        return choice;
+        return choice;
 }
 
 }
